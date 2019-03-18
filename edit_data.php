@@ -1,0 +1,103 @@
+<?php
+include_once 'conn.php';
+
+if (isset($_GET['edit_id'])){
+  $id = $_GET['edit_id'];
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Data</title>
+
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div id="header">
+      <h1>Edit Data</h1>
+    </div>
+
+    <div id="body">
+
+      <?php
+      $sql = "SELECT * FROM restaurants WHERE id=$id";
+      $result = $conn->query($sql);
+      
+      if ($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        
+        $name = $row['name'];
+        $location = $row['location'];
+        $contact = $row['contact'];
+        $rating = $row['rating'];
+      }
+      ?>
+
+      <form action="update_data.php?edit_id=<?php echo $id ?>" class="needs-validation" method="post" novalidate>
+        <div class="form-group">
+          <label for="name">Restaurant Name:</label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="Enter Restaurant Name" value="<?php echo $name ?>"
+            required>
+          <div class="valid-feedback">Valid</div>
+          <div class="invalid-feedback">Please fill out this field</div>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" name="location" id="location" class="form-control" placeholder="Enter Restaurant Location"
+            value="<?php echo $location ?>" required>
+          <div class="valid-feedback">Valid</div>
+          <div class="invalid-feedback">Please fill out this field</div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input type="tel" name="contact" id="contact" class="form-control" placeholder="Enter Restaurant Contact Numeber"
+            value="<?php echo $contact ?>" required>
+          <div class="valid-feedback">Valid</div>
+          <div class="invalid-feedback">Please fill out this field</div>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <select class="form-control" id="rating" name="rating" value="<?php echo $rating ?>">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+          <div class="valid-feedback">Valid</div>
+          <div class="invalid-feedback">Please fill out this field</div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Update</button>
+      </form>
+
+      <?php
+      $conn->close();
+      ?>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+<?php
+} else {
+  echo "No user is selected!";
+}
+?>
