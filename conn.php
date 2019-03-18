@@ -2,7 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dbtuts";
+$dbname = "arimax_db";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
