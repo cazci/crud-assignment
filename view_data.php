@@ -1,6 +1,7 @@
 <?php
 include_once 'conn.php';
 
+// Delete data
 if (isset($_GET['delete_id'])){
   $sql="DELETE FROM restaurants WHERE id = ".$_GET['delete_id'];
   $conn->query($sql);
