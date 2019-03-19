@@ -11,6 +11,7 @@ $sql = "UPDATE restaurants SET name='$name', location='$location', contact='$con
 
 if ($conn->query($sql) === TRUE) {
   echo "Record updated successfully";
+  header('Location:view_data.php');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
