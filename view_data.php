@@ -5,6 +5,7 @@ include_once 'conn.php';
 if (isset($_GET['delete_id'])){
   $sql="DELETE FROM restaurants WHERE id = ".$_GET['delete_id'];
   $conn->query($sql);
+  header('Location:view_data.php');
 }
 ?>
 
