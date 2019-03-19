@@ -99,7 +99,7 @@ if (isset($_GET['delete_id'])){
 
     <div class="footer">
       <center>
-        <button type="button" class="btn btn-outline-primary btn-custom" onclick="location.href='add_data.html'">Insert New Row</button>
+        <button type="button" class="btn btn-outline-primary btn-custom btn-custom-wide" onclick="location.href='add_data.html'">Insert New Row</button>
       </center>
     </div>
 

@@ -1,3 +1,7 @@
+#header{
+    margin-top: 30px;
+}
+
 .table{
     margin-top: 50px;
 }
@@ -24,6 +28,9 @@
 .btn-custom{
     color: steelblue;
     border-color: steelblue;
+}
+
+.btn-custom-wide{
     width: 200px;
 }
 

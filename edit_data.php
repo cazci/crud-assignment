@@ -15,6 +15,7 @@ if (isset($_GET['edit_id'])){
 
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -82,7 +83,7 @@ if (isset($_GET['edit_id'])){
           <div class="valid-feedback">Valid</div>
           <div class="invalid-feedback">Please fill out this field</div>
         </div>
-        <button type="submit" class="btn btn-outline-primary">Update</button>
+        <button type="submit" class="btn btn-outline-primary btn-custom">Update</button>
       </form>
 
       <?php
