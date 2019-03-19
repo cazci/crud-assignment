@@ -18,6 +18,8 @@ if (isset($_GET['delete_id'])){
 
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -43,17 +45,17 @@ if (isset($_GET['delete_id'])){
     </div>
 
     <div id="body">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
+      <table class="table table-hover">
+        <!-- <thead class="thead-dark"> -->
+          <tr class="table-head">
             <th>Restaurant ID</th>
             <th>Restaurant Name</th>
             <th>Location</th>
             <th>Contact Number</th>
             <th>Rating</th>
-            <th colspan="2">Operations</th>
+            <th colspan="2"></th>
           </tr>
-        </thead>
+        <!-- </thead> -->
 
         <?php
           $sql = "SELECT * FROM restaurants";
@@ -65,23 +67,23 @@ if (isset($_GET['delete_id'])){
 
         <tbody>
           <tr>
-            <td>
+            <td align="center">
               <?php echo $row['id']; ?>
             </td>
-            <td>
+            <td align="center">
               <?php echo $row['name']; ?>
             </td>
-            <td>
+            <td align="center">
               <?php echo $row['location']; ?>
             </td>
-            <td>
+            <td align="center">
               <?php echo $row['contact']; ?>
             </td>
-            <td>
+            <td align="center">
               <?php echo $row['rating']; ?>
             </td>
-            <td align="center"><a href="javascript:editRestaurant('<?php echo $row['id']; ?>')">Edit</a></td>
-            <td align="center"><a href="javascript:deleteRestaurant('<?php echo $row['id']; ?>','<?php echo $row['name']; ?>')">Delete</a></td>
+            <td align="center"><a href="javascript:editRestaurant('<?php echo $row['id']; ?>')"><i class="far fa-edit i-custom"></i></a></td>
+            <td align="center"><a href="javascript:deleteRestaurant('<?php echo $row['id']; ?>','<?php echo $row['name']; ?>')"><i class="far fa-trash-alt i-custom"></i></a></td>
           </tr>
         </tbody>
 
@@ -92,6 +94,12 @@ if (isset($_GET['delete_id'])){
           $conn->close();
           ?>
       </table>
+    </div>
+
+    <div class="footer">
+      <center>
+        <button type="button" class="btn btn-outline-primary btn-custom" onclick="location.href='add_data.html'">Insert New Row</button>
+      </center>
     </div>
 
   </div>

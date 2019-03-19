@@ -1,0 +1,32 @@
+.table{
+    margin-top: 50px;
+}
+
+.table-head {
+    color: white;
+    background-color: steelblue; 
+}
+
+.table-hover tbody tr:hover th {
+    color: white;
+    background-color: steelblue;
+}
+
+.table-hover tbody tr:hover td {
+    background-color: aliceblue;
+}
+
+.i-custom{
+    font-size: 22px; 
+    color: steelblue;
+}
+
+.btn-custom{
+    color: steelblue;
+    border-color: steelblue;
+    width: 200px;
+}
+
+.btn-custom:hover{
+    background-color: steelblue;
+}
