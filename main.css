@@ -25,6 +25,12 @@
     color: steelblue;
 }
 
+.i-back{
+    margin-right: 20px;
+    font-size: 35px;
+    color: black;
+}
+
 .btn-custom{
     color: steelblue;
     border-color: steelblue;

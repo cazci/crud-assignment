@@ -15,6 +15,7 @@ if (isset($_GET['edit_id'])){
 
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -25,7 +26,10 @@ if (isset($_GET['edit_id'])){
   <div class="container">
 
     <div id="header">
-      <h1>Edit Data</h1>
+      <div class="d-flex">
+        <a href="view_data.php"><i class="fas fa-arrow-circle-left i-back"></i></a>
+        <h1>Edit Data</h1>
+      </div>
     </div>
 
     <div id="body">
@@ -68,7 +72,8 @@ if (isset($_GET['edit_id'])){
         </div>
         <div class="form-group">
           <label for="rating">Rating:</label>
-          <select class="form-control" id="rating" name="rating" value="<?php echo $rating ?>">
+          <select class="form-control" id="rating" name="rating">
+            <option value="" selected disabled hidden><?php echo $rating ?></option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -83,7 +88,9 @@ if (isset($_GET['edit_id'])){
           <div class="valid-feedback">Valid</div>
           <div class="invalid-feedback">Please fill out this field</div>
         </div>
-        <button type="submit" class="btn btn-outline-primary btn-custom">Update</button>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-outline-primary btn-custom">Update</button>
+        </div>
       </form>
 
       <?php
