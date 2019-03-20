@@ -1,6 +1,8 @@
 <?php
+/* Include db connection */
 include_once 'conn.php';
 
+/* Check whether a edit id is given */
 if (isset($_GET['edit_id'])){
   $id = $_GET['edit_id'];
 ?>
@@ -35,12 +37,20 @@ if (isset($_GET['edit_id'])){
     <div id="body">
 
       <?php
+      
+      /* SQL Query */
       $sql = "SELECT * FROM restaurants WHERE id=$id";
+
+      /* Store result in a variable */
       $result = $conn->query($sql);
       
+      /* Check whether the result is not empty */
       if ($result->num_rows > 0){
+
+        /* Change object array to strings */
         $row = $result->fetch_assoc();
         
+        /* Save data to local variables */
         $name = $row['name'];
         $location = $row['location'];
         $contact = $row['contact'];
@@ -48,6 +58,7 @@ if (isset($_GET['edit_id'])){
       }
       ?>
 
+      <!-- Form to display edit data -->      
       <form action="update_data.php?edit_id=<?php echo $id ?>" class="needs-validation" method="post" novalidate>
         <div class="form-group">
           <label for="name">Restaurant Name:</label>
@@ -106,6 +117,8 @@ if (isset($_GET['edit_id'])){
 
 <?php
 } else {
+
+  /* Display error if no edit id is given */
   echo "No user is selected!";
 }
 ?>
